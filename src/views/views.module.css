@@ -1,0 +1,320 @@
+/* Shared layout + presentational styles for the section views. */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 20px;
+}
+
+.twoColEven {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ---- Horizontal bar rows (artists / revenue sources) ---- */
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.rank {
+  font-size: var(--fs-xs);
+  color: var(--muted-2);
+  text-align: right;
+}
+
+.rowMain {
+  min-width: 0;
+}
+
+.rowName {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowMeta {
+  font-size: var(--fs-xs);
+  color: var(--muted-2);
+}
+
+.barTrack {
+  grid-column: 2 / 3;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.rowValue {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ---- Demographics ---- */
+.demoRow {
+  display: grid;
+  grid-template-columns: minmax(56px, max-content) 1fr 44px;
+  align-items: center;
+  gap: 12px;
+}
+
+.demoLabel {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.demoPct {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-sm);
+  text-align: right;
+}
+
+/* ---- Payouts table ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+  font-weight: 600;
+  padding: 0 12px 12px;
+}
+
+.table th.num,
+.table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.table td {
+  padding: 13px 12px;
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-sm);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.paid {
+  color: #4cd0c0;
+  background: rgba(76, 208, 192, 0.14);
+}
+
+.processing {
+  color: #f5b14c;
+  background: rgba(245, 177, 76, 0.14);
+}
+
+.scheduled {
+  color: #8c93ad;
+  background: rgba(140, 147, 173, 0.16);
+}
+
+/* ---- Settings form ---- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 640px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.fieldLabel {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.fieldHint {
+  font-size: var(--fs-xs);
+  color: var(--muted-2);
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--canvas);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-sm);
+}
+
+.input:focus-visible,
+.select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 177, 76, 0.22);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+
+.toggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.toggleTitle {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.switch[aria-checked='true'] {
+  background: var(--accent);
+}
+
+.switchKnob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.18s ease;
+}
+
+.switch[aria-checked='true'] .switchKnob {
+  transform: translateX(18px);
+}
+
+.switch:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(245, 177, 76, 0.3);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.saveBtn {
+  padding: 11px 20px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #1a1205;
+  font: inherit;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  filter: brightness(1.06);
+}
+
+.saveBtn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(245, 177, 76, 0.3);
+}
+
+.ghostBtn {
+  padding: 11px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.saved {
+  font-size: var(--fs-sm);
+  color: #4cd0c0;
+  align-self: center;
+}
+
+.revChart {
+  height: 260px;
+}
+
+@media (max-width: 1180px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .twoCol,
+  .twoColEven {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

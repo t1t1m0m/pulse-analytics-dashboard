@@ -1,0 +1,46 @@
+.tooltip {
+  min-width: 160px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(20, 25, 41, 0.94);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.label {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  align-items: center;
+  gap: 9px;
+}
+
+.swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+}
+
+.name {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.value {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}

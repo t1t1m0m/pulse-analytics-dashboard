@@ -1,0 +1,180 @@
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-w);
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: linear-gradient(180deg, #141929 0%, #10141f 100%);
+  border-right: 1px solid var(--border);
+  z-index: 60;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 22px;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.close {
+  margin-left: auto;
+  display: none;
+  padding: 6px;
+  border-radius: 8px;
+  color: var(--muted);
+}
+
+.close:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.sectionLabel {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  padding: 4px 12px 8px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-weight: 500;
+  font-size: var(--fs-body);
+  transition:
+    background 0.16s var(--ease),
+    color 0.16s var(--ease);
+}
+
+.navItem:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.navIcon {
+  display: grid;
+  place-items: center;
+  color: inherit;
+}
+
+.active {
+  color: var(--text);
+  background: linear-gradient(90deg, var(--accent-soft), transparent 85%);
+  position: relative;
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--accent);
+}
+
+.active .navIcon {
+  color: var(--accent);
+}
+
+.upsell {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(120% 100% at 0% 0%, var(--teal-soft), transparent 60%), var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.upsellTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  margin-bottom: 6px;
+}
+
+.upsellBody {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.upsellBtn {
+  width: 100%;
+  padding: 9px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: #14181f;
+  background: linear-gradient(180deg, #ffc978, var(--accent));
+  transition: filter 0.16s var(--ease);
+}
+
+.upsellBtn:hover {
+  filter: brightness(1.06);
+}
+
+/* ---- Mobile drawer ---- */
+.scrim {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.24s var(--ease);
+    box-shadow: var(--shadow);
+  }
+
+  .open {
+    transform: translateX(0);
+  }
+
+  .close {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 9, 16, 0.6);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.24s var(--ease);
+    z-index: 55;
+  }
+
+  .scrimOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

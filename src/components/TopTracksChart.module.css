@@ -1,0 +1,21 @@
+.panel {
+  min-width: 0;
+}
+
+.chart {
+  width: 100%;
+  height: 260px;
+}
+
+.footnote {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.footnote strong {
+  color: var(--text);
+  font-weight: 600;
+}
